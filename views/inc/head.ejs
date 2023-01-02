@@ -1,0 +1,64 @@
+<div id="header" class="app-header">
+
+    <div class="brand">
+        <a href="/" class="brand-logo">
+            <span class="brand-text">MADAALE</span>
+        </a>
+    </div>   
+</div>
+
+
+<div id="sidebar" class="app-sidebar">
+
+    <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+
+        <div class="menu">
+            <div class="menu-header">Navigation</div>
+            <% if (caaqil == 'home') { %>
+                <div class="menu-item active">
+                    <a href="/" class="menu-link">
+                        <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                        <span class="menu-text">Dashboard</span>
+                    </a>
+                </div>
+                <% } else { %>
+                    <div class="menu-item">
+                        <a href="/" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-cpu"></i></span>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </div>
+            <% } %>
+            <% if (caaqil == 'active') { %>
+                <div class="menu-item active">
+                    <a href="/active" class="menu-link">
+                        <span class="menu-icon"><i class="bi bi-bar-chart"></i></span>
+                        <span class="menu-text">Active</span>
+                    </a>
+                </div>
+                <% } else { %>
+                    <div class="menu-item">
+                        <a href="/active" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-bar-chart"></i></span>
+                            <span class="menu-text">Active</span>
+                        </a>
+                    </div>
+            <% } %>
+            <% if (caaqil == 'expired') { %>
+                <div class="menu-item active">
+                    <a href="/expired" class="menu-link">
+                        <span class="menu-icon"><i class="bi bi-bar-chart"></i></span>
+                        <span class="menu-text">Expired</span>
+                    </a>
+                </div>
+                <% } else { %>
+                    <div class="menu-item">
+                        <a href="/expired" class="menu-link">
+                            <span class="menu-icon"><i class="bi bi-bar-chart"></i></span>
+                            <span class="menu-text">Expired</span>
+                        </a>
+                    </div>
+            <% } %>
+        </div>
+    </div>
+</div>

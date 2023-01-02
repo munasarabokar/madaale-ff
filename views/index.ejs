@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title> <%= title %>  </title>
+   <%- include('inc/css') %> 
+
+</head>
+
+<body>
+
+    <div id="app" class="app">
+
+       <%- include('inc/head') %> 
+
+        <button class="app-sidebar-mobile-backdrop" data-toggle-target=".app" data-toggle-class="app-sidebar-mobile-toggled"></button>
+
+        <% if (caaqil == 'home') { %>
+            <%- include('inc/tiro') %> 
+        <% } else if (caaqil == 'active') { %>
+            <%- include('inc/list') %> 
+        <% } else if (caaqil == 'expired') { %>
+            <%- include('inc/list') %>
+        <% } else if (caaqil == 'view') { %>
+            <%- include('inc/view') %>  
+        <% } %>
+
+    </div>
+    <%- include('inc/js') %> 
+</body>
+</html>

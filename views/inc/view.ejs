@@ -1,0 +1,329 @@
+      
+<div id="content" class="app-content">
+    <div class="card">
+        <div class="card-body p-0">
+
+            <div class="profile">
+
+                <div class="profile-container">
+                   
+                    <div class="col-xl-3">
+                        <div class="desktop-sticky-top">
+                               
+                               <% if (view.jinsiga == 'male') { %>
+                                <img src="/assets/img/nin.png" alt="" height="295px" width="295px" />
+                               <% } else { %>
+                                <img src="/assets/img/naag.png" alt=""  height="295px" width="295px" />
+                               <% } %>
+                               <hr class="mt-4 mb-4" />
+                            <h6><center> <%= view.magaca %> </center> </h6>  <hr class="mt-4 mb-4" />
+                            <div class="mb-3 text-white text-opacity-50 fw-bold mt-n2">
+                               <% if (view.status == 'active') { %>
+                                    <button class="btn btn-success btn-xs btn-block" disabled>
+                                        Wali waxbaa u yaala
+                                    </button>
+                                <% } else { %>
+                                    <button class="btn btn-danger btn-xs btn-block" disabled>
+                                        Dhamaan wuu qaatay
+                                    </button>
+                               <% } %>
+                             </div> <hr class="mt-4 mb-4" />
+                            <div class="mb-1">
+                                <i class="fa fa-map-marker-alt fa-fw text-white text-opacity-50"></i>Dagan : <%= view.dagan %> 
+                            </div>
+                            <div class="mb-3">
+                                <i class="fa fa-phone fa-fw text-white text-opacity-50"></i>Phone : <%= view.phone %> 
+                            </div>
+                            <hr class="mt-4 mb-4" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-9">
+                        <ul class="profile-tab nav nav-tabs nav-tabs-v2">
+                            <li class="nav-item">
+                                <a href="#profile-post" class="nav-link active" data-bs-toggle="tab">
+                                    <div class="nav-field">Lacag Bixin</div>
+                                    <div class="nav-value"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#profile-followers" class="nav-link" data-bs-toggle="tab">
+                                    <div class="nav-field">Ku darid</div>
+                                    <div class="nav-value"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#profile-media" class="nav-link" data-bs-toggle="tab">
+                                    <div class="nav-field">Faaiido</div>
+                                    <div class="nav-value"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="profile-content-container">
+                            <div class="row gx-4">
+                                <div class="col-xl-7">
+                                    <div class="tab-content p-0">
+                                        <div class="tab-pane fade show active" id="profile-post">
+                                            <div class="card mb-3">
+                                                <div class="card-header fw-bold bg-transparent"> List lacag bixin </div>
+                                                <div class="card-body">
+                                                    <div class="row gx-1">
+                                                        <div class="col-md-12 col-sm-12 mb-1">
+                                                            <% if (lacagta == 'not found') { %>
+                                                               <center>Wax lacag ah lama bixin</center>
+                                                            <% } else { %>
+                                                                <div>
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td>ID</td>
+                                                                            <td>lacagta</td>
+                                                                            <td>Faido</td>
+                                                                            <td>Close</td>
+                                                                            <td>waqtiga</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <% lacagta.forEach(element => { %>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>$ <%= element.lacagta %> </td>
+                                                                                <td>$ <%= element.shaqo %> </td>
+                                                                                <td>$ <%= element.cancle %> </td>
+                                                                                <td><%= element.created_at.toDateString() %> </td>
+                                                                            </tr>
+                                                                        <% }) %>
+                                                                    </tbody>
+                                                                </table>
+                                                                </div>
+                                                            <% } %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% if (view.status == 'active') { %>
+                                                    <center>
+                                                        <button type="button" class="btn btn-outline-theme me-2" data-bs-toggle="modal" data-bs-target="#modalCoverExample">Lacag Bixi</button>
+                                                    </center>
+                                                <% } %>
+                                                <div class="card-arrow">
+                                                    <div class="card-arrow-top-left"></div>
+                                                    <div class="card-arrow-top-right"></div>
+                                                    <div class="card-arrow-bottom-left"></div>
+                                                    <div class="card-arrow-bottom-right"></div>
+                                                </div>
+                                                <% if (message.length >0) { %>
+                                                    <% if (message == 'succ') { %>
+                                                            <hr>
+                                                            <div align="center">
+                                                                <div class="toast show toast fade hide mb-3" data-autohide="false">
+                                                                    <div class="toast-header">
+                                                                        <i class="far fa-bell text-muted me-2"></i>
+                                                                        <strong class="me-auto">Madaale</strong>
+                                                                        <small>Notification</small>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                                                                    </div>
+                                                                    <div class="toast-body">
+                                                                        Successfully Updated...
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    <% } %>
+                                                 <% } %> 
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="profile-followers">
+                                            <div class="card mb-3">
+                                                <div class="card-header fw-bold bg-transparent">List Ku darid</div>
+                                                <div class="card-body">
+                                                    <div class="row gx-1">
+                                                        <div class="col-md-12 col-sm-12 mb-1">
+                                                            <% if (kudarid == 'not found') { %>
+                                                               Wax lacag ah ma ku kordhinin wali
+                                                            <% } else { %>
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td>ID</td>
+                                                                            <td>lacagta</td>
+                                                                            <td>waqtiga</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <% kudarid.forEach(element => { %>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>$ <%= element.qiimaha %> </td>
+                                                                                <td><%= element.created_at.toDateString() %> </td>
+                                                                            </tr>
+                                                                        <% }) %>
+                                                                    </tbody>
+                                                                </table>
+                                                            <% } %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-arrow">
+                                                    <div class="card-arrow-top-left"></div>
+                                                    <div class="card-arrow-top-right"></div>
+                                                    <div class="card-arrow-bottom-left"></div>
+                                                    <div class="card-arrow-bottom-right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="profile-media">
+                                            <div class="card mb-3">
+                                                <div class="card-header fw-bold bg-transparent"> List Faa'iidada</div>
+                                                <div class="card-body">
+                                                    <div class="row gx-1">
+                                                        <div class="col-md-12 col-sm-12 mb-1">
+                                                            <% if (faaiido == 'not found') { %>
+                                                               Wax faaiido ah ma qaadanin
+                                                            <% } else { %>
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td>ID</td>
+                                                                            <td>lacagta</td>
+                                                                            <td>waqtiga</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <% faaiido.forEach(element => { %>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>$ <%= element.faidada %> </td>
+                                                                                <td><%= element.created_at.toDateString() %> </td>
+                                                                            </tr>
+                                                                        <% }) %>
+                                                                    </tbody>
+                                                                </table>
+                                                            <% } %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-arrow">
+                                                    <div class="card-arrow-top-left"></div>
+                                                    <div class="card-arrow-top-right"></div>
+                                                    <div class="card-arrow-bottom-left"></div>
+                                                    <div class="card-arrow-bottom-right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <div class="desktop-sticky-top d-none d-lg-block">
+                                        <div class="card mb-3">
+                                            <div class="list-group list-group-flush">
+                                                <div class="list-group-item fw-bold px-3 d-flex">
+                                                    <span class="flex-fill">More info</span>
+                                                    <a  class="text-white text-opacity-50"><i class="fa fa-cog"></i></a>
+                                                </div>
+                                                <div class="list-group-item px-3">
+                                                    <div class="text-white text-opacity-50"><small><strong>Magaca Hooyada</strong></small></div>
+                                                    <div class="fw-bold mb-2"><%= view.hooyo %> </div>
+                                                    <a  class="card text-white text-decoration-none mb-1">
+                                                        <div class="card-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-md-8">
+                                                                    <div class="small text-white text-opacity-50 mb-1 mt-n1">Dhalasho : <%= view.dhalasho %>  </div>
+                                                                    <div class="h-40px fs-13px overflow-hidden mb-n1">Ku dhashay : <%= view.ku_dhashay %></div>
+                                                                </div>
+                                                                <div class="col-md-4 d-flex">
+                                                                    <div class="h-100 w-100" style="background: url(assets/img/gallery/news-1.jpg) center; background-size: cover;"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-arrow">
+                                                            <div class="card-arrow-top-left"></div>
+                                                            <div class="card-arrow-top-right"></div>
+                                                            <div class="card-arrow-bottom-left"></div>
+                                                            <div class="card-arrow-bottom-right"></div>
+                                                        </div>
+                                                    </a>
+                                                    <div>
+                                                        <center>
+                                                            <small class="text-white text-opacity-50">Gender : <%= view.jinsiga %> </small> <<>>
+                                                            <small class="text-white text-opacity-50">Xaalada : <%= view.xaalada %> </small>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item px-3">
+                                                    <div class="fw-bold mb-2">Dhaxal sugayaasha</div>
+                                                    <div class="fs-13px mb-1"><%= view.dh1_name %> : <%= view.dh1_phone %>  </div>
+                                                    <div class="fs-13px mb-1"><%= view.dh2_name %> : <%= view.dh2_phone %> </div>
+                                                    <div><small class="text-white text-opacity-50"><i class="fa fa-external-link-square-alt"></i> Registration : <%= view.waqti.toDateString() %>   </small></div>
+                                                </div>
+                                                <div class="list-group-item px-3">
+                                                    <div class="fw-bold mb-2">Marqaatiyaasha</div>
+                                                    <div class="fs-13px mb-1"><%= view.m1_name %> : <%= view.m1_phone %>  </div>
+                                                    <div class="fs-13px mb-1"><%= view.m2_name %> : <%= view.m2_phone %> </div>
+                                                    <div><small class="text-white text-opacity-50"><i class="fa fa-external-link-square-alt"></i> Balance Now : $ <%= view.lacagta %>   </small></div>
+                                                </div>
+                                                <a  class="list-group-item list-group-action text-center">
+                                                    Made By Munasar Abuukar
+                                                    </a>
+                                            </div>
+                                            <div class="card-arrow">
+                                                <div class="card-arrow-top-left"></div>
+                                                <div class="card-arrow-top-right"></div>
+                                                <div class="card-arrow-bottom-left"></div>
+                                                <div class="card-arrow-bottom-right"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="card-arrow">
+            <div class="card-arrow-top-left"></div>
+            <div class="card-arrow-top-right"></div>
+            <div class="card-arrow-bottom-left"></div>
+            <div class="card-arrow-bottom-right"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-cover fade" id="modalCoverExample">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Qeybta Lacag Bixinta</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3">
+                   Ma hubtaa In qofkaa wixiisa qaatay oo account kiisa la xiraayo
+                </p>
+                <form action="/paid" method="post">
+                <div class="row mb-5">
+                    <p class="mb-3">
+                        Fadlan Gali waqtiga uu qaatay Macaamiilka
+                     </p>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-lg" name="date" required>
+                    </div>
+                    <input type="hidden" name="lacagta" value="<%= view.lacagta %>">
+                    <input type="hidden" name="link" value="<%= view.link %>">
+                    <input type="hidden" name="user_id" value="<%= view.id %>">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-outline-theme btn-lg btn-block">Continue</button>
+                    </div>
+                </div>
+             </form>
+                <div class="pt-3">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
